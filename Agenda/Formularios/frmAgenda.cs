@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Negocio;
 
 namespace Agenda
 {
@@ -42,7 +43,7 @@ namespace Agenda
         private void tstSalvar_Click(object sender, EventArgs e)
         {
             //validação do conteúdo
-            if (txtNome.Text == "") 
+            if (txtNome.Text == "")
             {
                 errErro.SetError(lblNome, "Campo Obrigatório");
                 return;
@@ -51,10 +52,19 @@ namespace Agenda
             {
                 errErro.SetError(lblNome, "");
             }
-
-            string conexao = Properties.Settings.Default.conexaoDB;
-
-
+            //instancia a classe de negócio
+            clCliente clClientes = new clCliente();
+            //carrega as propriedades
+            clClientes.cliNome = txtNome.Text;
+            clClientes.cliEndereco = txtEndereco.Text;
+            clClientes.cliNumero = txtNumero.Text;
+            clClientes.cliBairro = txtBairro.Text;
+            clClientes.cliCidade = txtCidade.Text;
+            clClientes.cliCep = mskCEP.Text;
+            clClientes.cliCelular = mskCelular.Text;
+            clClientes.banco = Properties.Settings.Default.conexaoDB;
+            MessageBox.Show("Cliente incluido com Sucesso", "atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            clClientes.Gravar();
         }
 
         //PesquisarCEP é um método
@@ -79,6 +89,11 @@ namespace Agenda
             {
                 MessageBox.Show("CEP não Encontrado!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-        }             
+        }
+
+        private void frmAgenda_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -26,7 +26,7 @@ namespace Agenda.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=AME0556356W10-1\\SQLEXPRESS;Initial Catalog=Dados;Integrated Security=" +
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=AME0556331W10-1\\SQLEXPRESS;Initial Catalog=Dados;Integrated Security=" +
             "True")]
         public string conexaoDB {
             get {

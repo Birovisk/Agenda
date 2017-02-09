@@ -350,6 +350,7 @@
             this.Name = "frmAgenda";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = ".:Agenda de Contatos.:";
+            this.Load += new System.EventHandler(this.frmAgenda_Load);
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.frmAgenda_KeyPress);
             this.grpClientes.ResumeLayout(false);
             this.grpClientes.PerformLayout();
