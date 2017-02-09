@@ -14,7 +14,7 @@ namespace Negocio
         public string proDescricao { get; set; }
         public string proMarca { get; set; }
         public string proPreco { get; set; }
-        public string proDate { get; set; }
+        public string proData { get; set; }
 
         public void Gravar()
         {
@@ -26,13 +26,13 @@ namespace Negocio
             strQuery.Append(" proDescricao ");
             strQuery.Append(", proMarca ");
             strQuery.Append(", proPreco ");
-            strQuery.Append(", proDate ");
+            strQuery.Append(", proData ");
             strQuery.Append(" ) ");
             strQuery.Append(" VALUES ( ");
             strQuery.Append(" '" + proDescricao + "'");
             strQuery.Append(", '" + proMarca + "'");
             strQuery.Append(", '" + proPreco + "'");
-            strQuery.Append(", '" + proDate + "'");
+            strQuery.Append(", '" + proData + "'");
             strQuery.Append(" ); ");
             //instancia a classe clacessoDB e executa o comando
             clAcessoDB clAcessoDB = new clAcessoDB();
