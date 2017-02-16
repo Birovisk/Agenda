@@ -55,5 +55,42 @@ namespace Negocio
                 FechaBanco(conn);
             }
         }
+
+        //DataSet é utilizado para retornar um volume grande de registros utilizado principalmente para o componente datagridview
+        public DataSet RetornaDataSet(string strQuery)
+        {
+            SqlConnection conn = new SqlConnection();
+            try
+            {
+                //abre a conexção com o banco de dados
+                conn = AbreBanco();
+                //cria objeto em comando
+                SqlCommand cmdComando = new SqlCommand();
+                //passa os valores da querry SQL, tipo de comando, conexão e executa o comando
+                cmdComando.CommandText = strQuery;
+                cmdComando.CommandType = CommandType.Text;
+                cmdComando.Connection = conn;
+                //declara um dataadapter
+                SqlDataAdapter daAdaptador = new SqlDataAdapter();
+                //declara um datacenter
+                DataSet dsdataset = new DataSet();
+                //passa o comando a ser executado pelo dataadapter
+                daAdaptador.SelectCommand = cmdComando;
+                //o dataAdapter faz a conexão com o banco de dados, carrega o dataset e fecha a conexão
+                daAdaptador.Fill(dsdataset);
+                //retorna o dataset carregado
+                return dsdataset;
+                //tratamento de Exeções
+            }
+            catch (System.Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                //em caso de erro ou não, o finally é executado para fechar a conexão com o banco de dados
+                FechaBanco(conn);
+            }
+        }
     }
 }

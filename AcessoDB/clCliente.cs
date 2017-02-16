@@ -91,6 +91,9 @@ namespace Negocio
             clAcessoDB clAcessoDB = new clAcessoDB();
             clAcessoDB.vConexao = banco;
             clAcessoDB.ExecutaComando(strQuery.ToString());
+         }
+         public void Select()
+        {
 
         }
     }
