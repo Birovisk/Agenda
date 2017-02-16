@@ -51,5 +51,33 @@ namespace Negocio
             clAcessoDB.vConexao = banco;
             clAcessoDB.ExecutaComando(strQuery.ToString());
         }
+        public void Alterar()
+
+        {
+            //variavel utilizada para "concatenar" texto de forma estruturada
+
+            StringBuilder strQuery = new StringBuilder();
+
+            //montagem do Update
+
+            strQuery.Append(" UPDATE tb_Clientes");
+            strQuery.Append("set");
+            strQuery.Append(" cliNome = '" + cliNome + "'");
+            strQuery.Append(",cliEndereco '" + cliEndereco + "'");
+            strQuery.Append(",cliNumero '" + cliNumero + "'");
+            strQuery.Append(",cliBairro '" + cliBairro + "'");
+            strQuery.Append(",cliCidade '" + cliCidade + "'");
+            strQuery.Append(",cliEstado '" + cliEstado + "'");
+            strQuery.Append(",cliCep '" + cliCep + "'");
+            strQuery.Append(",cliCelular '" + cliCelular + "'");
+            strQuery.Append(" WHERE ");
+            strQuery.Append(" cliCodigo = " + cliCodigo);
+
+            //instancia a classe clacessoDB e executa o comando
+
+            clAcessoDB clAcessoDB = new clAcessoDB();
+            clAcessoDB.vConexao = banco;
+            clAcessoDB.ExecutaComando(strQuery.ToString());
+        }
     }
 }

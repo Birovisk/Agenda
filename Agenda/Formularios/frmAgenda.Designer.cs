@@ -320,6 +320,7 @@
             this.tstPesquisar.Size = new System.Drawing.Size(61, 22);
             this.tstPesquisar.Text = "&Pesquisar";
             this.tstPesquisar.ToolTipText = "Clique para Salvar";
+            this.tstPesquisar.Click += new System.EventHandler(this.tstPesquisar_Click);
             // 
             // toolStripSeparator1
             // 
