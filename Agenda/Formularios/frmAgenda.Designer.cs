@@ -310,6 +310,7 @@
             this.tstExcluir.Size = new System.Drawing.Size(45, 22);
             this.tstExcluir.Text = "&Excluir";
             this.tstExcluir.ToolTipText = "Excluir";
+            this.tstExcluir.Click += new System.EventHandler(this.tstExcluir_Click);
             // 
             // tstPesquisar
             // 

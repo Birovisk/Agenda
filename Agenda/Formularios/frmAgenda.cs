@@ -99,5 +99,10 @@ namespace Agenda
         private void tstPesquisar_Click(object sender, EventArgs e)
         {
         }
+
+        private void tstExcluir_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

@@ -79,5 +79,19 @@ namespace Negocio
             clAcessoDB.vConexao = banco;
             clAcessoDB.ExecutaComando(strQuery.ToString());
         }
+
+        public void Excluir()
+        {
+            StringBuilder strQuery = new StringBuilder();
+
+            strQuery.Append("DELETE FROM tb_Clientes");
+            strQuery.Append("Where");
+            strQuery.Append(" clicodigo = " + cliCodigo);
+
+            clAcessoDB clAcessoDB = new clAcessoDB();
+            clAcessoDB.vConexao = banco;
+            clAcessoDB.ExecutaComando(strQuery.ToString());
+
+        }
     }
 }
