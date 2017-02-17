@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.SqlClient;
+using System.Data;
+
 
 namespace Negocio
 {
@@ -92,9 +95,23 @@ namespace Negocio
             clAcessoDB.vConexao = banco;
             clAcessoDB.ExecutaComando(strQuery.ToString());
          }
-         public void Select()
-        {
 
+         public DataSet Pesquisar(string campo, string filtro)
+        {
+            StringBuilder strQuery = new StringBuilder();
+            //montagem de select
+            strQuery.Append(" SELECT * ");
+            strQuery.Append(" From tb_Clientes");
+            if (campo != string.Empty && filtro != string.Empty)
+            {
+                strQuery.Append(" Where ");
+                strQuery.Append(campo + "like '" + "&" + filtro + "&" + "'");
+            }
+            strQuery.Append("ORDER by cliNome");
+            //executa o comando
+            clAcessoDB clAcessoDB = new clAcessoDB();
+            clAcessoDB.vConexao = banco;
+            return clAcessoDB.RetornaDataSet(strQuery.ToString());
         }
     }
 }
